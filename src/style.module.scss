@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-@media (width < 426px){
+@media (width < 751px){
     .Navbar{
         display: none;
     }
@@ -15,7 +15,7 @@
         display: none;
     }
 }
-@media (width > 426px){
+@media (width > 750px){
     .container{
         margin-left: 50px;
         margin-right: 50px;
