@@ -26,7 +26,7 @@ function SectionDesktop() {
       </div>
       </div>
       <div className={s.imgContainer}>
-        <img src={ImgSection} alt="img" srcset="" />
+        <img src={ImgSection} alt="img" />
       </div>
       
     </div>

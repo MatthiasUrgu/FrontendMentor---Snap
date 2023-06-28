@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import {List,ChevronDoubleUp,ChevronDoubleDown} from 'react-bootstrap-icons'
 import Planning from "../../assets/img/icon-planning.svg"
 import Reminders from "../../assets/img/icon-reminders.svg"
@@ -31,6 +31,34 @@ const CompagnyUp = <span className={s.chevron}><ChevronDoubleUp size={10}/></spa
 /* const switch Compagny Down */
 const CompagnyDown = <span className={s.chevron}><ChevronDoubleDown size={10}/></span>
 
+
+let cancelFeatureMenu = useRef()
+let cancelCompagnyMenu = useRef()
+/* useEffect pour écouter et désactiver les menus  */
+useEffect(()=>{
+  let cancel =(e)=>
+    {
+      if (!cancelFeatureMenu.current.contains(e.target)){
+        setFeatures(false)
+        e.preventDefault()
+        
+      }
+    }
+    document.addEventListener('mousedown', cancel)
+})
+useEffect(()=>{
+  let cancel2 =(e)=>
+    {
+      if (!cancelCompagnyMenu.current.contains(e.target)){
+        setCompagny(false)
+        e.preventDefault()
+        
+      }
+    }
+    document.addEventListener('mousedown', cancel2)
+})
+
+
 const animateFrom = {opacity:0 , y:-10}
 const animateTo = {opacity:1 , y:0 }
 
@@ -39,7 +67,7 @@ const animateTo = {opacity:1 , y:0 }
       
       <div className={s.navbarContainer} >
         <ul className={s.NavbarUl}>
-          <li className={s.featuresLi} onClick={featuresMenu}><a href="#">Features {isFeatures ? featuresUp : featuresDown}</a></li>
+          <li className={s.featuresLi} onClick={featuresMenu} ref={cancelFeatureMenu}><a href="#">Features {isFeatures ? featuresUp : featuresDown}</a></li>
             <ul className={s.featuresDrop} style={{display: isFeatures ? "flex" : "none"}} >
                 <motion.li
                   initial={isFeatures? animateFrom : animateTo}
@@ -70,7 +98,7 @@ const animateTo = {opacity:1 , y:0 }
                     <a href="#">
                       <img src={TodoList} alt="TodoList"/> To do list</a></motion.li>
             </ul>
-          <li className={s.featuresLi} onClick={compagnyMenu}><a href="#">Compagny {isCompagny ? CompagnyUp : CompagnyDown} </a></li>
+          <li className={s.featuresLi} onClick={compagnyMenu} ref={cancelCompagnyMenu}><a href="#">Compagny {isCompagny ? CompagnyUp : CompagnyDown} </a></li>
           <ul className={s.compagnyMenu} style={{display: isCompagny ? "flex" : "none"}} >
                 <motion.li
                   initial={isCompagny? animateFrom : animateTo}
