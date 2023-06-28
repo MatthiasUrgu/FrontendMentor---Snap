@@ -1,0 +1,30 @@
+.logo{
+    font-size: 30px;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 600;
+    a{
+        text-decoration: none;
+        color: black;
+        cursor:pointer;
+    }
+
+}
+
+@media (width > 767px){
+    .logo{
+        font-size: 2rem;
+    }
+}
+
+@media (width > 1023px){
+    .logo{
+        font-size: 2.5rem;
+    }
+}
+
+@media (width > 1439px){
+    .logo{
+        font-size: 3rem;
+    }
+}
+

@@ -1,0 +1,129 @@
+.header_mobile{
+    display: flex;
+    align-items: center;
+
+    .hamburger{
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+        margin-top: 10px;
+        z-index: 1;
+    }
+    .hamburgerShow{
+        
+        font-family: 'Geologica', sans-serif;
+        font-size: 14px;
+        color: hsl(0, 0%, 41%);
+        display: none;
+        position:fixed;
+        top: 0;
+        right: 0;
+        width: 200px;
+        background-color: white;
+        box-shadow: 10px 20px 15px 10px;
+        height:100vh;
+        
+
+        .hamburgerList{
+            margin-top: 60px;
+        }
+
+        li{       
+             margin-top: 15px;
+             width: 100%;
+             max-width: 200px;
+             a{        
+                 cursor: pointer;
+                display: flex;
+                text-decoration: none;
+                color: hsl(0, 0%, 41%);
+
+                img{
+                    padding-right: 15px;
+                }
+
+                
+             }
+
+             
+        }
+        
+
+
+        li{
+            list-style-type: none;
+            a{
+                cursor: pointer;
+                text-decoration: none;
+                color: hsl(0, 0%, 41%);
+            }
+        }
+        
+
+
+        .featuresMenu{
+            display: none;
+            flex-direction: column;
+            list-style-type: none;
+            padding-left:20px;
+            
+            li{
+                margin-top: 15px
+            }
+        }
+        .compagnyMenu{
+            @extend .featuresMenu;
+        }
+
+        .hamburgerButton{
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+
+            button{
+                font-family: 'Geologica', sans-serif;
+                font-size: 13px;
+                padding: 8px;
+                border-radius: 10px;
+                border: 1px solid transparent;
+                background-color: transparent;
+                color:hsl(0, 0%, 41%);
+                margin-top: 10px;
+                width: 150px;
+                cursor: pointer;
+
+                &:hover{
+                    border: 1px solid hsl(0, 0%, 41%);
+                }
+
+            }
+            
+        }
+
+        /* ---------------Hover des menus----------------- */
+       li:hover{
+        color: rgb(1, 1, 176)
+       };
+        a:hover{
+            color: rgb(1, 1, 176);
+        }
+    }
+
+
+/* -----------------------espace Chevron------------------------ */
+
+.chevron{
+    padding-top: 2px;
+    padding-left: 10px;
+}
+}
+
+/* ------------MediaQueries------------------ */
+@media (width > 426px){
+    .header_mobile{
+        display: none;
+    }
+}

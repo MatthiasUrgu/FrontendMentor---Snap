@@ -1,0 +1,89 @@
+.sectionContainer{
+    display: flex;
+    flex-direction: column;
+    
+    
+    img{
+        object-fit: contain;
+        height: 250px;
+    }
+
+    .textSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    h1{
+        
+        font-size: 30px;
+        font-family: 'Geologica', sans-serif;
+        white-space: nowrap;
+        
+ }  
+    p{
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+        font-family: 'Geologica', sans-serif;
+        font-size: 14px;
+        margin-top: -10px;
+        line-height: 20px;
+        margin-bottom: 20px;
+        color: hsl(0, 0%, 41%);
+    }
+
+    button{
+        font-family: 'Geologica', sans-serif;
+        font-size: 14px;
+        align-self: center;
+        border-radius: 15px;
+        border: none;
+        background-color: black;
+        color: white;
+        width: 120px;
+        height: 40px;
+        margin-bottom: 15px;
+        cursor: pointer;
+
+
+    
+    }
+
+    /* ------------Hover Button--------------- */
+button:hover{
+        background-color: transparent;
+        color: black;
+        border: 1px solid black;
+
+}
+
+
+    .marque{
+
+   
+    display: flex;
+    justify-content: center;
+        img{
+            margin-right: 10px;
+            height: 65px;
+            width: 65px;
+            
+        
+        }
+    } }
+}
+
+@media (width > 374px){
+    .sectionContainer{
+        .imgSection{
+            height: 300px; 
+}
+}
+}
+@media (width > 376px){
+    .sectionContainer{
+        .imgSection{
+            height: 320px; 
+}
+}
+}

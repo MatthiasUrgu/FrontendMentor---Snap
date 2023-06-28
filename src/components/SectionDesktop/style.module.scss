@@ -1,0 +1,123 @@
+.desktopContainer {
+  display: flex;
+  align-items: center;
+
+  padding-left: 15%;
+  padding-right: 10%;
+  padding-top: 20px;
+  .text {
+    min-width: 200px;
+    max-width: 800px;
+    margin-right: 50px;
+    h1 {
+      font-family: "Geologica";
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-family: "Geologica";
+      color: hsl(0, 0%, 41%);
+      font-size: 15px;
+      margin-bottom: 50px;
+      /* width: 400px; */
+    }
+
+    button {
+      background-color: black;
+      color: white;
+      font-family: "Geologica";
+      font-size: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 50px;
+    }
+
+    button:hover {
+      color: hsl(0, 0%, 8%);
+      background-color: transparent;
+      border: 1px solid hsl(0, 0%, 8%);
+    }
+    .marque {
+      display: flex;
+      justify-content: space-around;
+
+      img {
+        object-fit: contain;
+        min-width: 60px;
+        max-width: 90px;
+      }
+    }
+  }
+  .imgContainer {
+    img {
+      min-width: 25px;
+      max-width: 30vw;
+    }
+  }
+}
+
+@media (width > 426px) and (width < 769px) {
+  .desktopContainer {
+    padding-left: 10%;
+    padding-right: 5%;
+    .text{
+        
+        
+        h1{
+            font-size: 2.5rem;
+        }
+        p{
+            font-size: 0.8rem;
+            width: 300px;
+            margin-bottom: 40px;
+        }
+        button{
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+        }
+        .marque{
+            img{
+                width: 60px;
+            }
+        }
+    }
+    .imgContainer{
+        img{
+            min-width: 35vw;
+        }
+    }
+  }
+}
+
+
+
+
+@media (width > 1025px)  {
+    .desktopContainer {
+     
+      .text{
+          
+          
+          h1{
+              font-size: 4rem;
+              margin-bottom: 60px;
+          }
+          p{
+            font-size: 1.5rem;
+            margin-bottom: 60px; 
+          }
+          button{
+            font-size: 1.5rem;
+            margin-bottom: 60px; 
+          }
+          .marque{
+              img{
+                  width: 100px; 
+              }
+          }
+      }
+    }
+  }
+  
