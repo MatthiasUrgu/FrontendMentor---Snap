@@ -36,28 +36,35 @@ let cancelFeatureMenu = useRef()
 let cancelCompagnyMenu = useRef()
 /* useEffect pour écouter et désactiver les menus  */
 useEffect(()=>{
-  let cancel =(e)=>
+  let cancelFeature =(e)=>
     {
       if (!cancelFeatureMenu.current.contains(e.target)){
         setFeatures(false)
-        e.preventDefault()
+        
+        console.log("cancel Feature menu")
         
       }
     }
-    document.addEventListener('mousedown', cancel)
-})
+    document.addEventListener('mousedown', cancelFeature)
+    return () => {
+      document.removeEventListener('mousedown', cancelFeature)
+    };
+  }, []);
 useEffect(()=>{
-  let cancel2 =(e)=>
+  let cancelCompagny =(e)=>
     {
       if (!cancelCompagnyMenu.current.contains(e.target)){
         setCompagny(false)
-        e.preventDefault()
+        console.log("cancel Compagny menu")
         
       }
     }
-    document.addEventListener('mousedown', cancel2)
-})
+    document.addEventListener('mousedown', cancelCompagny)
 
+return () => {
+      document.removeEventListener('mousedown', cancelCompagny)
+    };
+  }, []);
 
 const animateFrom = {opacity:0 , y:-10}
 const animateTo = {opacity:1 , y:0 }
@@ -98,24 +105,28 @@ const animateTo = {opacity:1 , y:0 }
                     <a href="#">
                       <img src={TodoList} alt="TodoList"/> To do list</a></motion.li>
             </ul>
+
           <li className={s.featuresLi} onClick={compagnyMenu} ref={cancelCompagnyMenu}><a href="#">Compagny {isCompagny ? CompagnyUp : CompagnyDown} </a></li>
-          <ul className={s.compagnyMenu} style={{display: isCompagny ? "flex" : "none"}} >
-                <motion.li
-                  initial={isCompagny? animateFrom : animateTo}
-                  animate={ isCompagny? animateTo : animateFrom}
-                  transition= {{delay: 0.1}}>
-                  <a href="#">History</a></motion.li>
-                <motion.li 
-                  initial={isCompagny? animateFrom : animateTo}
-                  animate={ isCompagny? animateTo : animateFrom}
-                  transition= {{delay: 0.15}}>
-                    <a href="#">Our Team</a></motion.li>
-                <motion.li
-                  initial={isCompagny? animateFrom : animateTo}
-                  animate={ isCompagny? animateTo : animateFrom}
-                  transition= {{delay: 0.20}}>
-                    <a href="#">Blog</a></motion.li>
-            </ul>
+            <ul className={s.compagnyMenu} style={{display: isCompagny ? "flex" : "none"}} >
+                  <motion.li
+                    initial={isCompagny? animateFrom : animateTo}
+                    animate={ isCompagny? animateTo : animateFrom}
+                    transition= {{delay: 0.1}}
+                    className={s.compagnyDropLi}>
+                    <a href="#">History</a></motion.li>
+                  <motion.li 
+                    initial={isCompagny? animateFrom : animateTo}
+                    animate={ isCompagny? animateTo : animateFrom}
+                    transition= {{delay: 0.15}}
+                    className={s.compagnyDropLi}>
+                      <a href="#">Our Team</a></motion.li>
+                  <motion.li
+                    initial={isCompagny? animateFrom : animateTo}
+                    animate={ isCompagny? animateTo : animateFrom}
+                    transition= {{delay: 0.20}}
+                    className={s.compagnyDropLi}>
+                      <a href="#">Blog</a></motion.li>
+              </ul>
           <li className={s.featuresLi}><a href="#">Careers</a></li>
           <li className={s.featuresLi}><a href="#">About</a></li>
         </ul>
